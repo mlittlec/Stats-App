@@ -1,8 +1,11 @@
-from textual.app import App
+from textual.app import App, ComposeResult
+from textual.widgets import Header
 
 
 class StatsApp(App):
-    pass
+    # pass
+    def compose(self) -> ComposeResult:
+        yield Header()
 
 
 if __name__ == "__main__":
