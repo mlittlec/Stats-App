@@ -15,7 +15,7 @@ class StatsApp(App):
 
     def action_toggle_dark(self) -> None:
         """An action to toggle daerk mode"""
-        self.dark = not.self.dark
+        self.dark = not self.dark
 
 
 if __name__ == "__main__":
