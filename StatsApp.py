@@ -7,6 +7,7 @@ class StatsApp(App):
     """" A template Textual application to process our Usage Stats"""
     # pass
 
+    TITLE = "OL Train Stats Reporter Demo"
     BINDINGS = [("d", "toggle_dark", "Toggle Dark Mode"), Binding("ctrl+c,ctrl+q", "app.quit", "Quit", show=True)]
 
     def compose(self) -> ComposeResult:
