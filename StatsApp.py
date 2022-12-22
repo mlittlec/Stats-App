@@ -37,7 +37,7 @@ class StatsApp(App):
     def compose(self) -> ComposeResult:
         """Create Child widgets for the app."""
         yield Container(
-            Header()
+            Header(),
             TextLog(classes="-hidden", wrap=False, highlight=True, markup=True),
         )
         yield Footer()
