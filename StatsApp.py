@@ -1,13 +1,17 @@
 from pathlib import Path
 
+from rich.console import RenderableType
 from rich.text import Text
+
 
 from textual.app import App, ComposeResult
 from textual.binding import Binding
+from textual.containers import Container
 from textual.widgets import (
     Header, 
     Footer, 
     Static,
+    TextLog,
 )
 
 
@@ -27,9 +31,15 @@ class StatsApp(App):
         ("ctrl+s", "app.screenshot()", "Screenshot"),
         Binding("ctrl+c,ctrl+q", "app.quit", "Quit", show=True)]
 
+    def add_note(self, renderable: RenderableType) -> None:
+        self.query_one(TextLog).write(renderable)
+
     def compose(self) -> ComposeResult:
         """Create Child widgets for the app."""
-        yield Header()
+        yield Container(
+            Header()
+            TextLog(classes="-hidden", wrap=False, highlight=True, markup=True),
+        )
         yield Footer()
 
     def action_toggle_dark(self) -> None:
